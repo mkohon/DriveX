@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Najam Vozila - DriveX</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- Navigacija -->
+    <nav>
+        <a href="index.html" class="logo">DRIVE<span>X</span></a>
+        <ul>
+            <li><a href="index.html">Početna</a></li>
+            <li><a href="index.html#vozni-park">Vozni Park</a></li>
+            <li><a href="o-nama.html">O nama</a></li>
+            <li><a href="najam.html" class="active">Najam Vozila</a></li>
+        </ul>
+    </nav>
+
+    <!-- Zaglavlje stranice -->
+    <header class="parallax-header najam-header">
+        <div class="overlay"></div>
+        <div class="content">
+            <h1>Najam Vozila</h1>
+            <p>Rezervirajte svoje vozilo ili upravljajte postojećim najmovima.</p>
+        </div>
+    </header>
+
+    <!-- Sekcija s formom -->
+    <section class="form-section">
+        <div class="form-container">
+            <h2 style="text-align: center; margin-bottom: 20px; color: #ff3e3e;">Rezervirajte Vozilo</h2>
+            
+            <!-- Traka uspjeha -->
+            <div id="trakaUspjeha" class="success-banner">
+                Najam je uspješno spremljen!
+            </div>
+
+            <!-- Interaktivna Forma -->
+            <form id="formaNajma" novalidate>
+                <div class="form-group">
+                    <label for="imeIPrezime">Ime i prezime</label>
+                    <input type="text" id="imeIPrezime" placeholder="Ivan Horvat">
+                    <div class="error-msg" id="greskaIme">Molimo unesite ime i prezime (minimalno 3 znaka).</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-mail Adresa</label>
+                    <input type="email" id="email" placeholder="ivan@example.com">
+                    <div class="error-msg" id="greskaEmail">Molimo unesite valjanu e-mail adresu.</div>
+                </div>
+
+                <!-- Odabir valute u formi -->
+                <div class="form-group">
+                    <label for="odabirValuteForma">Prikaz Valute</label>
+                    <select id="odabirValuteForma" class="select-valuta">
+                        <option value="EUR">EUR (€)</option>
+                        <option value="USD">USD ($)</option>
+                        <option value="GBP">GBP (£)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="odabirVozila">Vrsta Vozila</label>
+                    <select id="odabirVozila">
+                        <option value="">-- Odaberite vozilo --</option>
+                        <option value="Sportski Coupe" data-cijena="120">Sportski Coupe</option>
+                        <option value="Luksuzni SUV" data-cijena="150">Luksuzni SUV</option>
+                        <option value="Poslovna Limuzina" data-cijena="95">Poslovna Limuzina</option>
+                    </select>
+                    <div class="error-msg" id="greskaVozilo">Molimo odaberite vozilo.</div>
+                </div>
+
+                <!-- Dinamički prikaz cijene najma -->
+                <div id="prikazCijeneForma" style="margin-bottom: 20px; padding: 10px; background: rgba(255,62,62,0.1); border-left: 4px solid #ff3e3e; border-radius: 4px; display: none;">
+                    <strong>Cijena najma po danu:</strong> <span id="iznosCijeneForma" style="color: #ff3e3e; font-weight: bold; font-size: 1.2rem;">-</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="datumPreuzimanja">Datum Preuzimanja</label>
+                    <input type="date" id="datumPreuzimanja">
+                    <div class="error-msg" id="greskaDatum">Molimo odaberite datum u budućnosti.</div>
+                </div>
+
+                <button type="submit" class="btn btn-full">Potvrdi Rezervaciju</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Prikaz spremljenih najmova -->
+    <section class="info-block">
+        <h2>Moji Najmovi</h2>
+        <div id="porukaNemaNajmova" style="color: #888;">Nema spremljenih najmova. Ispunite formu iznad kako biste iznajmili automobil!</div>
+        
+        <div style="overflow-x: auto;">
+            <table class="najam-table" id="tablicaNajmova" style="display: none;">
+                <thead>
+                    <tr>
+                        <th>Ime</th>
+                        <th>E-mail</th>
+                        <th>Vozilo</th>
+                        <th>Cijena/dan</th>
+                        <th>Datum</th>
+                        <th>Akcija</th>
+                    </tr>
+                </thead>
+                <tbody id="tijeloTabliceNajmova">
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 DriveX Najam Vozila. Sva prava pridržana.</p>
+    </footer>
+
+    <script src="js/najam.js"></script>
+</body>
+</html>

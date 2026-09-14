@@ -1,0 +1,406 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth; 
+}
+
+body {
+    color: #333;
+    background-color: #0f1016; /* Tamna pozadina cijele stranice */
+    overflow-x: hidden; /* Sprječava pojavu horizontalne trake za skrolanje */
+}
+
+/* --- Navigacijska traka --- */
+nav {
+    position: fixed; /* Navigacija ostaje fiksirana na vrhu pri skrolanju */
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* Razdvaja logo na lijevu i izbornik na desnu stranu */
+    align-items: center;
+    padding: 20px 50px;
+    background: rgba(15, 16, 22, 0.85); /* Poluprozirna tamna pozadina */
+    backdrop-filter: blur(10px); /* Efekt zamućenja sadržaja ispod navigacije */
+    z-index: 1000; /* Osigurava da je navigacija uvijek iznad ostalog sadržaja */
+}
+
+nav .logo {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: 2px;
+    text-decoration: none;
+}
+
+nav .logo span {
+    color: #ff3e3e; /* Crvena boja za slovo X u logotipu */
+}
+
+nav ul {
+    display: flex;
+    list-style: none; /* Uklanja točkice s liste */
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+/* Stil za prelazak mišem i aktivnu stranicu */
+nav ul li a:hover, nav ul li a.active {
+    color: #ff3e3e;
+}
+
+/* --- Paralaks sekcije (Zajednički stilovi) --- */
+.parallax-section {
+    position: relative;
+    height: 100vh; /* Zauzima cijelu visinu ekrana */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    background-attachment: fixed; /* Ključno za paralaks efekt - pozadina ostaje fiksirana dok se sadržaj skrola */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.parallax-header {
+    position: relative;
+    height: 50vh; /* Manja visina za zaglavlja sporednih stranica */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Tamni sloj preko slika radi bolje čitljivosti teksta */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.65);
+    z-index: 1;
+}
+
+/* Sadržaj unutar paralaks sekcija */
+.content {
+    position: relative;
+    z-index: 2; /* Postavlja tekst iznad .overlay sloja */
+    max-width: 800px;
+    padding: 20px;
+}
+
+/* --- Paralaks Pozadinske Slike --- */
+.section-1 {
+    background-image: url('../images/section1-bg.jpg');
+}
+
+.section-2 {
+    background-image: url('../images/section2-bg.jpg');
+}
+
+.section-3 {
+    background-image: url('../images/section3-bg.jpg');
+}
+
+.about-header {
+    background-image: url('../images/about-bg.jpg');
+}
+
+.najam-header {
+    background-image: url('../images/najam-bg.jpg');
+}
+
+h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    line-height: 1.6;
+    color: #ddd;
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 35px;
+    background-color: #ff3e3e;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+    background-color: #e03232;
+    transform: translateY(-3px); /* Blagi skok gumba prema gore na hover */
+}
+
+.btn-full {
+    width: 100%;
+    border-radius: 6px;
+}
+
+/* --- Kartice s vozilima (Grid) --- */
+.info-block {
+    padding: 80px 20px;
+    background-color: #161822;
+    color: #fff;
+    text-align: center;
+}
+
+.info-block h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #ff3e3e;
+}
+
+.car-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.car-card {
+    background: #202330;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    transition: transform 0.3s;
+}
+
+.car-card:hover {
+    transform: translateY(-10px);
+}
+
+.car-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Zadržava omjer slike */
+}
+
+.car-card-body {
+    padding: 20px;
+}
+
+.car-card-body h3 {
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+}
+
+.price {
+    font-size: 1.2rem;
+    color: #ff3e3e;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* --- Stranica "O nama" --- */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.info-section {
+    padding: 80px 20px;
+    background-color: #161822;
+    color: #fff;
+}
+
+.info-section h2 {
+    font-size: 2.2rem;
+    color: #ff3e3e;
+    margin-bottom: 20px;
+}
+
+.info-section p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #ccc;
+    margin-bottom: 20px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin: 40px 0;
+    text-align: center;
+}
+
+.stat-card {
+    background: #202330;
+    padding: 30px 20px;
+    border-radius: 8px;
+    border: 1px solid #2a2d3d;
+}
+
+.stat-card h3 {
+    font-size: 2.5rem;
+    color: #ff3e3e;
+    margin-bottom: 5px;
+}
+
+.stat-card p {
+    font-size: 0.95rem;
+    color: #aaa;
+    margin-bottom: 0;
+}
+
+/* --- Forma za rezervaciju --- */
+.form-section {
+    background: #12131c;
+    padding: 60px 20px;
+    color: #fff;
+}
+
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #1a1c29;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    color: #ccc;
+}
+
+.form-group input, 
+.form-group select {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 6px;
+    border: 1px solid #333646;
+    background: #0f1016;
+    color: #fff;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus, 
+.form-group select:focus {
+    border-color: #ff3e3e;
+}
+
+.error-msg {
+    color: #ff4d4d;
+    font-size: 0.85rem;
+    margin-top: 5px;
+    display: none; /* Sakriveno, prikazuje se preko JavaScripta */
+}
+
+.success-banner {
+    display: none; /* Prikazuje se tek nakon uspješne rezervacije */
+    background: #1b5e20;
+    color: #a5d6a7;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* --- Tablica spremljenih rezervacija --- */
+.najam-table {
+    width: 100%;
+    max-width: 900px;
+    margin: 20px auto 0;
+    border-collapse: collapse;
+    background: #1a1c29;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.najam-table th, .najam-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #2a2d3d;
+}
+
+.najam-table th {
+    background-color: #252838;
+    color: #ff3e3e;
+}
+
+.najam-table td {
+    color: #ddd;
+    font-size: 0.95rem;
+}
+
+.delete-btn {
+    background: #d32f2f;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.delete-btn:hover {
+    background: #b71c1c;
+}
+
+footer {
+    background-color: #0b0c10;
+    color: #777;
+    text-align: center;
+    padding: 30px;
+    font-size: 0.9rem;
+}
+
+/* Prilagodljivost za mobilne uređaje */
+@media (max-width: 768px) {
+    .parallax-section, .parallax-header { 
+        background-attachment: scroll; /* Na mobitelima isključujemo paralaks radi performansi */
+    }
+    h1 { 
+        font-size: 2.2rem; 
+    }
+    nav ul { 
+        display: none; 
+    }
+}

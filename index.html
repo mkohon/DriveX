@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DriveX - Premium Najam Vozila</title>
+    <!-- Poveznica na CSS datoteku -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- Glavna navigacija -->
+    <nav>
+        <a href="index.html" class="logo">DRIVE<span>X</span></a>
+        <ul>
+            <li><a href="index.html" class="active">Početna</a></li>
+            <li><a href="#vozni-park">Vozni Park</a></li>
+            <li><a href="o-nama.html">O nama</a></li>
+            <li><a href="najam.html">Najam Vozila</a></li>
+        </ul>
+    </nav>
+
+    <!-- Sekcija s Paralaks efektom -->
+    <section id="section-1" class="parallax-section section-1">
+        <div class="overlay"></div>
+        <div class="content">
+            <h1>Vožnja Iz Snova</h1>
+            <p>Vrhunski najam vozila po pristupačnim cijenama. Doživite otvorenu cestu uz našu luksuznu flotu.</p>
+            <a href="#vozni-park" class="btn">Istraži Flotu</a>
+        </div>
+    </section>
+
+    <!-- Sekcija s karticama vozila -->
+    <section id="vozni-park" class="info-block">
+        <h2>Istaknuti Vozni Park</h2>
+
+        <!-- Odabir valute -->
+        <div style="margin-bottom: 30px;">
+            <label for="odabirValute" style="font-weight: bold; margin-right: 10px;">Odaberite valutu:</label>
+            <select id="odabirValute" class="select-valuta" style="padding: 8px 12px; border-radius: 6px; background: #202330; color: #fff; border: 1px solid #333646; font-size: 1rem; cursor: pointer;">
+                <option value="EUR">EUR (€)</option>
+                <option value="USD">USD ($)</option>
+                <option value="GBP">GBP (£)</option>
+            </select>
+        </div>
+
+        <div class="car-grid">
+            
+            <!-- Kartica 1: Sportski Coupe -->
+            <div class="car-card">
+                <img src="images/sportski-coupe.jpg" alt="Sportski Coupe">
+                <div class="car-card-body">
+                    <h3>Sportski Coupe</h3>
+                    <div class="price" data-osnovna-cijena="120">120 € / dan</div>
+                    <a href="najam.html?vozilo=Sportski Coupe" class="btn" style="padding: 10px 20px; font-size: 0.8rem;">Iznajmi Odmah</a>
+                </div>
+            </div>
+
+            <!-- Kartica 2: Luksuzni SUV -->
+            <div class="car-card">
+                <img src="images/luksuzni-suv.jpg" alt="Luksuzni SUV">
+                <div class="car-card-body">
+                    <h3>Luksuzni SUV</h3>
+                    <div class="price" data-osnovna-cijena="150">150 € / dan</div>
+                    <a href="najam.html?vozilo=Luksuzni SUV" class="btn" style="padding: 10px 20px; font-size: 0.8rem;">Iznajmi Odmah</a>
+                </div>
+            </div>
+
+            <!-- Kartica 3: Poslovna Limuzina -->
+            <div class="car-card">
+                <img src="images/poslovna-limuzina.jpg" alt="Poslovna Limuzina">
+                <div class="car-card-body">
+                    <h3>Poslovna Limuzina</h3>
+                    <div class="price" data-osnovna-cijena="95">95 € / dan</div>
+                    <a href="najam.html?vozilo=Poslovna Limuzina" class="btn" style="padding: 10px 20px; font-size: 0.8rem;">Iznajmi Odmah</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Paralaks Sekcija 2 -->
+    <section class="parallax-section section-2">
+        <div class="overlay"></div>
+        <div class="content">
+            <h1>Vrhunska Udobnost</h1>
+            <p>Sva naša vozila prolaze detaljan servis i dezinfekciju prije svake vožnje kako bismo vam osigurali potpunu sigurnost i udobnost.</p>
+        </div>
+    </section>
+
+    <!-- Paralaks Sekcija 3 -->
+    <section class="parallax-section section-3">
+        <div class="overlay"></div>
+        <div class="content">
+            <h1>Spremni Za Pokret?</h1>
+            <p>Rezervirajte online danas i ostvarite do 15% popusta na svoj prvi najam!</p>
+            <a href="najam.html" class="btn">Rezervirajte Vozilo</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 DriveX Najam Vozila. Sva prava pridržana.</p>
+    </footer>
+
+    <script src="js/najam.js"></script>
+</body>
+</html>
